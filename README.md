@@ -23,7 +23,11 @@ mardown parser. I simply do not have the time to implement one...
 
 ## Installation
 1) create a remote bare repo and put all files from remote into the right place
+
 2) set up the configuration in ./remote/hook/post-receive
+
 3) clone ./remote into ./remote/data
+
 4) clone ./remote to where ever you like to add content
+
 5) somehow move the generated html to your webserver...
