@@ -1,0 +1,46 @@
+#!/bin/bash
+
+##################CONFIGURATION#################################
+WORK_PATH="/Users/j0m/fu/research/blog/remote"
+NUM_ENTRY=5
+GROUP="staff"
+BLOGTITLE="A Blog"
+BLOGTITLE_SUB="Where science happens..."
+HMARKER="⌘\&nbsp;" #must escaped
+LINK_SPACER="〜" #must escaped
+FOOTER_LINKS="contact,mailto:contact@wherever.com;imprint,http://www.wherever.com/imprint/" #";" seperates entries. "," separates title and link
+################################################################
+
+#DO NOT TOUCH private config
+MD_WORK_DIR="$WORK_PATH/data"
+HTML_WORK_DIR="$WORK_PATH/html"
+MD_PARSER="$WORK_PATH/bin/markdown"
+BIN_DIR="$WORK_PATH/bin"
+MD_PARSER_SCRIPT="$BIN_DIR/parse_markdown.sh"
+LIST_GENERATOR_SCRIPT="$BIN_DIR/create_file_list.sh"
+
+#delete old files
+echo "Clearing old html..."
+
+rm -rf $HTML_WORK_DIR
+mkdir $HTML_WORK_DIR
+
+#parse markdown
+echo "Generating html..."
+
+##update data from repo
+cd $MD_WORK_DIR
+git --git-dir=$MD_WORK_DIR/.git stash
+git --git-dir=$MD_WORK_DIR/.git stash clear
+git --git-dir=$MD_WORK_DIR/.git pull
+
+##generate page
+$BIN_DIR/gen_page.sh $MD_WORK_DIR $MD_PARSER_SCRIPT $MD_PARSER $HTML_WORK_DIR $LIST_GENERATOR_SCRIPT $BIN_DIR $NUM_ENTRY "$BLOGTITLE" "$BLOGTITLE_SUB" "$HMARKER" "$FOOTER_LINKS" "$LINK_SPACER"
+
+#Set permissions
+chmod -R u=rwx,g=rwx,o= $HTML_WORK_DIR
+chmod -R u=rwx,g=rwx,o= $MD_WORK_DIR
+chown -R ":$GROUP" $HTML_WORK_DIR
+chown -R ":$GROUP" $MD_WORK_DIR
+
+echo Done!

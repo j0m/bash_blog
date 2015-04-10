@@ -1,0 +1,91 @@
+      body {
+        font-family: "Lucida Console", Monaco, monospace;
+	font-size: 0.7em;
+        text-align: justify;
+        max-width: 55em;
+        line-height: 1.8;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: #fcfbfc;
+	color: #000000;
+      }
+
+#foot {
+    text-align: center;
+}
+
+#head1 {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    font-size: 3em;
+    color: rgb(69,54,37);
+    text-align: right;
+    letter-spacing: 0.1em;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.6);
+}
+
+#head2 {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    font-size: 1.5em;
+    color: rgba(69,54,37,0.8);
+    text-align: right;
+    margin-top: -1em;
+    letter-spacing: 0.1em;
+}
+
+h1 {
+    font-size: 1.7em;
+    color: rgba(69,54,37,0.9);
+}
+
+h2 {
+    font-size: 1.4em;
+    color: rgba(69,54,37,0.9);
+}
+
+h3 {
+    font-size: 1.2em;
+    color: rgba(69,54,37,0.9);
+}
+
+#footerLinks {
+    text-align: center;
+}
+
+author {
+  color: rgba(69,54,37,0.6);
+  font-size: 0.85em;
+  font-style: italic;
+  letter-spacing: 0.25em;
+  padding-bottom: 0.5em;
+}
+
+time{
+  color: rgba(69,54,37,0.6);
+
+  font-size: 0.5em;
+  font-style: italic;
+}
+
+article p {
+  -moz-column-count: 1;
+  -moz-column-gap: 1em;
+  -webkit-column-count: 1;
+  -webkit-column-gap: 1em;
+  column-count: 1;
+  column-gap: 1em;
+  line-height: 1.5em;
+  color: rgb(69,54,37);
+}
+
+article p:first-of-type{
+  -moz-column-count: 1;
+  -webkit-column-count: 1;
+  column-count: 1;
+  font-size: 1.1em;
+}
+
+article p:first-of-type:first-line{
+  font-weight: bold;
+  font-size: 1.2em;
+  line-height: 1.8em;
+}
